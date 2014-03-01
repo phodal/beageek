@@ -28,11 +28,28 @@ Javascript现在已经无处不在了，也许你正打开的某个网站他可�
 	<!DOCTYPE html>
 	<html>
 		<head>
-			<script type="text/javscript">
+			<script type="text/javascript">
 				document.write('hello,world');
 			</script>
 		</head>
 		<body></body>
 	</html>
 	
+没有显示hello,world?试试下面的代码
+
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<script type="text/javascript">
+				document.write('hello,world');
+			</script>
+		</head>
+		<body>
+			<noscript>
+				disable Javascript
+			</noscript>
+		</body>
+	</html>
+	
+
 	
