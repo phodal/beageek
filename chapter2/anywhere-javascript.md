@@ -177,3 +177,10 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 <blockquote>无序属性的集合，其属性可以包含基本值、对象或者函数。</blockquote>
 
 创建一个object，然后观察这便是我们接下来要做的 
+
+	store={};
+	store.tang=4;
+	store.num=3;
+	document.write(store.tang*store.num);
+	
+我们就有了和document.write一样的用法，这也是对象的美妙之处
