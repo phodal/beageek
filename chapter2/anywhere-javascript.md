@@ -310,4 +310,12 @@ Javascript还有一个很强大的特性，也就是原型继承，不过这里�
 
 	<p id="para" style="color:red">Red</p>
 
-同时还需要将script标签移到body下面。
+同时还需要将script标签移到body下面，如果没有意外的话我们会看到页面上用红色的字体显示Red，修改app.js。
+
+	var para=document.getElementById("para");
+	para.style.color="blue";
+	
+接着，字体就变成了蓝色，有了DOM我们就可以对页面进行操作，可以说我们看到的绝大部分的页面效果都是通过DOM操作实现的。
+
+而所谓的继承，
+
