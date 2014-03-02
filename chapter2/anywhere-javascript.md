@@ -183,4 +183,18 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 	store.num=3;
 	document.write(store.tang*store.num);
 	
-我们就有了和document.write一样的用法，这也是对象的美妙之处
+我们就有了和document.write一样的用法，这也是对象的美妙之处，只是这里的对象只是包含着基本值，因为
+  
+    typerof story.tang="number"
+    
+一个包含对象的对象应该是这样子的。
+
+	store={};
+	store.tang=4;
+	store.num=3;
+	document.writeln(store.tang*store.num);
+
+	var wall=new Object();
+	wall.store=store;
+	document.write(typeof wall.store);
+
