@@ -1,6 +1,6 @@
-var IO=new Object();
-function print(result){
-	document.write(result);
+var Person={name:"phodal",weight:50,height:166};
+Person.future=function dream(){
+	future;
 }
-IO.print=print;
-IO.print("a obejct with function");
+document.write(typeof Person);
+document.write(Person.dream);

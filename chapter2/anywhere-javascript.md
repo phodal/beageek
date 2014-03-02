@@ -200,13 +200,39 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 	
 而我们用到的document.write和上面用到的document.writeln都是属于这个无序属性集合中的函数。
 
+下面代码说的就是这个无序属性集中中的函数。
+
 	var IO=new Object();
 	function print(result){
 		document.write(result);
 	}
 	IO.print=print;
 	IO.print("a obejct with function");
+	IO.print(typeof IO.print);
 
+我们定义了一个叫IO的对象，声明对象可以用
 
+    var store={};
+   
+又或者是    
+   
+    var store=new Object{};
 
+两者是等价的，但是用后者的可读性会更好一点，我们定义了一个叫print的函数，他的作用也就是document.write，IO中的print函数是等价于print()函数，这也就是对象和函数之间的一些区别，对象可以包含函数，对象是无序属性的集合，其属性可以包含基本值、对象或者函数。
+
+复杂一点的对象应该是下面这样的一种情况。
+
+	var Person={name:"phodal",weight:50,height:166};
+	function dream(){
+		future;
+	}
+	Person.future=dream;
+	document.write(typeof Person);
+	document.write(Person.dream);
+
+而这些会在我们未来的实际编编程中用得更多。
+
+###面向对象###
+
+开始之前先我们简化上面的代码，
 
