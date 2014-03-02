@@ -185,7 +185,7 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 	
 我们就有了和document.write一样的用法，这也是对象的美妙之处，只是这里的对象只是包含着基本值，因为
   
-    typerof story.tang="number"
+    typeof story.tang="number"
     
 一个包含对象的对象应该是这样子的。
 
@@ -197,4 +197,16 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 	var wall=new Object();
 	wall.store=store;
 	document.write(typeof wall.store);
+	
+而我们用到的document.write和上面用到的document.writeln都是属于这个无序属性集合中的函数。
+
+	var IO=new Object();
+	function print(result){
+		document.write(result);
+	}
+	IO.print=print;
+	IO.print("a obejct with function");
+
+
+
 
