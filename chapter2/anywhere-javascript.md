@@ -228,7 +228,7 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 	}
 	Person.future=dream;
 	document.write(typeof Person);
-	document.write(Person.dream);
+	document.write(Person.future);
 
 而这些会在我们未来的实际编编程中用得更多。
 
@@ -236,3 +236,8 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 
 开始之前先我们简化上面的代码，
 
+	Person.future=function dream(){
+		future;
+	}
+
+看上去比上面的简单多了，不过我们还可以简化为下面的代码。。。
