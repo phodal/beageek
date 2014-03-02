@@ -116,6 +116,7 @@ function sin(degree){
 }
 sin(30);
 </code></pre>
+在这里degree称之为变量，也就是可以改变的量。
 于是输出了-0.9880316240928602，而不是0.5，因为这里用的是弧度制，而不是角度制。
 
     sin(30)
@@ -141,7 +142,7 @@ calc(3,4);
 但是从某种程度上来说，我们的calc做了计算的事又做了输出的事，总的来说设计上有些不好。
 
 ###重新设计###
-我们将输出的工作移到了外面，
+我们将输出的工作移到函数的外面，
 <pre><code class="javascript">
 function calc(tang,num){
 	return tang*num;
@@ -160,3 +161,19 @@ function printResult(tang,num){
 printResult(3, 4)
 </code></pre>
 看上去更专业了一点点，如果我们只需要计算的时候我们只需要调用calc，如果我们需要输出的时候我们就调用printResult的方法。
+
+###object和函数###
+我们还没有说清楚之前我们遇到过的document.write以及Math.sin的语法看上去很奇怪，所以让我们看看他们到底是什么，修改app.js为以及内容
+
+    document.write(typeof document);
+    document.write(typeof Math);
+
+typeof document会返回document的数据类型，就会发现输出的结果是
+
+    object object
+    
+所以我们需要去弄清楚什么是object。对象的定义是
+
+<blockquote>无序属性的集合，其属性可以包含基本值、对象或者函数。</blockquote>
+
+创建一个object，然后观察这便是我们接下来要做的 
