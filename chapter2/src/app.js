@@ -1,13 +1,13 @@
-var Person=function(){
-	this.name="phodal";
-	this.weight=50;
-	this.height=166;
-	this.future=function dream(){
+var Person=function(name,weight,height){
+	this.name=name;
+	this.weight=weight;
+	this.height=height;	
+	this.future=function(){
 		return "future";
 	}
 }
-var person=new Person();
-document.write(person.name+"<br>");
-document.write(typeof person+"<br>");
-document.write(typeof person.future+"<br>");
-document.write(person.future()+"<br>");
+var phodal=new Person("phodal",50,166);
+document.write(phodal.name+"<br>");
+document.write(phodal.weight+"<br>");
+document.write(phodal.height+"<br>");
+document.write(phodal.future()+"<br>");

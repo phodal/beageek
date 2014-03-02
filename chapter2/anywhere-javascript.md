@@ -241,3 +241,27 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 	}
 
 看上去比上面的简单多了，不过我们还可以简化为下面的代码。。。
+
+	var Person=function(){
+		this.name="phodal";
+		this.weight=50;
+		this.height=166;
+		this.future=function dream(){
+			return "future";
+		}
+	}
+	var person=new Person();
+	document.write(person.name+"<br>");
+	document.write(typeof person+"<br>");
+	document.write(typeof person.future+"<br>");
+	document.write(person.future()+"<br>");
+
+只是在这个时候Person是一个函数，但是我们声明的person却变成了一个对象<strong>一个Javascript函数也是一个对象，并且，所有的对象从技术上讲也只不过是函数。</strong>这里的+"<br>"是HTML中的元素，称之为DOM，在这里起的是换行的作用，我们会在稍后介绍它，这里我们先关心下this。this关键字表示函数的所有者或作用域，也就是这里的Person。
+
+上面的方法显得有点不可取，换句话说和一开始的
+ 
+    document.write(3*4);
+    
+一样，不具有灵活性，因此在我们完成功能之后，我们需要对其进行优化，这就是程序设计的真谛——解决完实际问题后，我们需要开始真正的设计，而不是解决问题时的编程。
+
+
