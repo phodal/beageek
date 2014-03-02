@@ -1,2 +1,4 @@
-document.writeln(typeof document);
-document.writeln(typeof Math);
+store={};
+store.tang=4;
+store.num=3;
+document.write(store.tang*store.num);
