@@ -205,7 +205,7 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 	var IO=new Object();
 	function print(result){
 		document.write(result);
-	}
+	};
 	IO.print=print;
 	IO.print("a obejct with function");
 	IO.print(typeof IO.print);
@@ -225,7 +225,7 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 	var Person={name:"phodal",weight:50,height:166};
 	function dream(){
 		future;
-	}
+	};
 	Person.future=dream;
 	document.write(typeof Person);
 	document.write(Person.future);
@@ -248,8 +248,8 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 		this.height=166;
 		this.future=function dream(){
 			return "future";
-		}
-	}
+		};
+	};
 	var person=new Person();
 	document.write(person.name+"<br>");
 	document.write(typeof person+"<br>");
@@ -264,4 +264,50 @@ typeof document会返回document的数据类型，就会发现输出的结果是
     
 一样，不具有灵活性，因此在我们完成功能之后，我们需要对其进行优化，这就是程序设计的真谛——解决完实际问题后，我们需要开始真正的设计，而不是解决问题时的编程。
 
+	var Person=function(name,weight,height){
+		this.name=name;
+		this.weight=weight;
+		this.height=height;	
+		this.future=function(){
+			return "future";
+		};
+	};
+	var phodal=new Person("phodal",50,166);
+	document.write(phodal.name+"<br>");
+	document.write(phodal.weight+"<br>");
+	document.write(phodal.height+"<br>");
+	document.write(phodal.future()+"<br>");
+	
+于是，产生了这样一个可重用的Javascript对象,this关键字确立了属性的所有者。
 
+###其他###
+Javascript还有一个很强大的特性，也就是原型继承，不过这里我们先不考虑这些部分，用尽量少的代码及关键字来实际我们所要表达的核心功能，这才是这里的核心，其他的东西我们可以从其他书本上学到。
+
+完整的Javascript应该由下列三个部分组成:
+
+ - 核心(ECMAScript)——核心语言功能
+ - 文档对象模型(DOM)——访问和操作网页内容的方法和接口
+ - 浏览器对象模型(BOM)——与浏览器交互的方法和接口
+ 
+我们在上面讲的都是ECMAScript，也就是语法相关的，但是JS真正强大的，或者说我们最需要的可能就是对DOM的操作，这也就是为什么jQuery等库可以流行的原因之一，而核心语言功能才是真正在哪里都适用的，至于BOM真正用到的机会很少，因为没有好的统一的标准。
+
+一个简单的DOM示例,
+
+	<!DOCTYPE html>
+	<html>
+	<head>
+	</head>
+	<body>
+		<noscript>
+			disable Javascript
+		</noscript>
+		<p id="para" style="color:red">Red</p>
+	</body>
+		<script type="text/javascript" src="app.js"></script>
+	</html>
+	
+我们需要修改一下helloworld.html添加	
+
+	<p id="para" style="color:red">Red</p>
+
+同时还需要将script标签移到body下面。
