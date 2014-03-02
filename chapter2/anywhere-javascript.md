@@ -283,6 +283,27 @@ typeof document会返回document的数据类型，就会发现输出的结果是
 ###其他###
 Javascript还有一个很强大的特性，也就是原型继承，不过这里我们先不考虑这些部分，用尽量少的代码及关键字来实际我们所要表达的核心功能，这才是这里的核心，其他的东西我们可以从其他书本上学到。
 
+所谓的继承，
+
+	var Chinese=function(){
+		this.country="China";
+	}
+
+	var Person=function(name,weight,height){
+		this.name=name;
+		this.weight=weight;
+		this.height=height;	
+		this.futrue=function(){
+			return "future";
+		}
+	}
+	Chinese.prototype=new Person();
+
+
+	var phodal=new Chinese("phodal",50,166);
+	document.write(phodal.country);
+	
+	
 完整的Javascript应该由下列三个部分组成:
 
  - 核心(ECMAScript)——核心语言功能
@@ -317,5 +338,9 @@ Javascript还有一个很强大的特性，也就是原型继承，不过这里�
 	
 接着，字体就变成了蓝色，有了DOM我们就可以对页面进行操作，可以说我们看到的绝大部分的页面效果都是通过DOM操作实现的。
 
-而所谓的继承，
+###美妙之处###
+这里说到的Javascript仅仅只是其中的一小小部分，忽略掉的东西很多，只关心的是如何去设计一个实用的app，作为一门编程语言，他还有其他强大的内制函数，要学好需要一本有价值的参考书。这里提到的只是其中的不到20%的东西，其他的80%或者更多会在你解决问题的时候出现。
 
+ - 我们可以创建一个对象或者说函数，它可以包含基本值、对象或者函数。
+ - 我们可以用Javascript修改页面的属性，虽然只是简单的示例。
+ - 我们还可以去解决实际的编程问题。
