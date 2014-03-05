@@ -50,10 +50,41 @@ jQuery的作法是将诸如isFunction,isArray这些函数打包到jQuery.extend�
     function isWindow(obj)     { return obj != null && obj == obj.window }
     function isDocument(obj)   { return obj != null && obj.nodeType == obj.DOCUMENT_NODE }
     function isObject(obj)     { return type(obj) == "object" }
-    function isPlainObject(obj) {
-      return isObject(obj) && !isWindow(obj) && obj.__proto__ == Object.prototype
-    }
-    function isArray(value) { return value instanceof Array }
-    function likeArray(obj) { return typeof obj.length == 'number' }
 
 我们需要去了解一些故事背后的原因，越来越害怕GUI的原因之一，在于不知道背后发生了什么，即使是开源的，我们也无法了解真正的背后发生什么了。对于不是这个工具、软件的用户来说，开源更多的意义可能在于我们可以添加新的功能，以及免费。如果没有所谓的危机感，以及认为自己一直在学习工具的话，可以试着去打包自己的函数，打包自己的库。
+
+	var calc={
+		add: function(a,b){
+			return a+b;
+		},
+		sub: function(a,b){
+			return a-b;
+		},
+		dif: function(a,b){
+			if(a>b){
+				return a;
+			}else{
+				return b;
+			}
+		}
+	}
+	
+然后用诸如jslint测试一下代码。
+
+	$ ./jsl -conf jsl.default.conf
+	JavaScript Lint 0.3.0 (JavaScript-C 1.5 2004-09-24)
+	Developed by Matthias Miller (http://www.JavaScriptLint.com)
+
+	app.js
+	/Users/fdhuang/beageek/chapter4/src/app.js(15): lint warning: missing semicolon
+		}
+	........^
+
+
+	0 error(s), 1 warning(s)
+	
+于是我们需要在第15行添加一个分号。
+
+最好的方法还是阅读别人的代码，而所谓的别人指的是一些相对较大的网站的，有好的开发流程，代码质量也不会太差。而所谓的复杂的代码都是一步步构建上去的，罗马不是一天建成的。
+
+有意思的是多数情况下，我们可能会用原型去开发我们的应用，而这也是我们需要去了解和掌握的地方，
