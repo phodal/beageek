@@ -22,6 +22,25 @@
  
 或许在这方面我也算不上很了解，不过按笔者的经验来说，大致就是如此。
 
+多数情况下我们的HTML是类似于下面这样子的
+
+    <div class="col-md-3 right">
+        {% nevercache %}
+        {% include "includes/user_panel.html" %}
+        {% endnevercache %}
+        <div class="panel panel-default">
+        <div class="panel-body">
+        {% block right_panel %}
+        {% ifinstalled mezzanine.twitter %}
+        {% include "twitter/tweets.html" %}
+        {% endifinstalled %}
+        {% endblock %}
+        </div>
+        </div>
+    </div>
+    
+换句话说HTML只是基础，而不是日常用到的。我们的HTML是由template生成的，我们可以借助于mustache.js又或者是angluarjs之类的js库来生成最后的HTML，所以这里只是一个开始。
+
 ###javascript###
 这里以未压缩的jQuery源码和zepto.js作一个小小的比较，zepto.js是兼容jQuery的，因此我们举几个有意思的函数作一简单的比较，关于源码可以在官网上下载到。
 
@@ -88,3 +107,56 @@ jQuery的作法是将诸如isFunction,isArray这些函数打包到jQuery.extend�
 最好的方法还是阅读别人的代码，而所谓的别人指的是一些相对较大的网站的，有好的开发流程，代码质量也不会太差。而所谓的复杂的代码都是一步步构建上去的，罗马不是一天建成的。
 
 有意思的是多数情况下，我们可能会用原型去开发我们的应用，而这也是我们需要去了解和掌握的地方，
+
+	function Calc(){
+
+	}
+	Calc.prototype.add=function(a,b){
+		return a+b;
+	};
+	Calc.prototype.sub=function(a,b){
+		return a-b;
+	};
+
+我们似乎在这里展示了更多的Javascript的用法，但是这不是一好的关于Javascript的介绍，有一天我们还要用诸如qunit之类的工具去为我们的function写测试，这时就是一个更好的开始。
+
+
+###CSS###
+CSS有时候很有趣，但是有时候有很多我们没有意识到的用法，这里以Bootstrap为例，这是一个不错的CSS库。最令人兴奋的是没有闭源的CSS，没有闭源的JS，这也就是前端好学习的地方所在了，不过这是一个开源的CSS库，虽然是这样叫的，但是称之为CSS库显然不合适。
+
+    a,
+    a:visited {
+      text-decoration: underline;
+    }
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+      content: "";
+    }
+    
+这里有一些有趣的，值得一讲的CSS用法。
+
+- 伪类选择器,如a:visited这样需要其他条件来对元素应用样式，用于已访问的链接。
+- 属性选择器,如a[href]这样当a元素存在href这样的属性的时候来寻找应用元素。
+
+其他的还需要去好好了解的就是**CSS的盒模型**，作为CSS的基石之一。
+
+诸如
+
+	* {
+      margin: 0px;
+      padding: 0px;
+      font-family: Helvetica;
+    }
+
+这样的通用器用来进行全局选择的工具和我们用于抵消某个body对于子选择器的影响一样值得注意得多。
+
+##笔记##
+写博客似乎是一个不错的好习惯，作为一个不是很优秀的写手。对于来说，有时候发现原来能教会别人对于自己的能力来说算是一种肯定。有些时候教会别人才算是自己学会的表现，总会在项目上的时候需要自己去复述工作的一个过程，我们需要整理好我们的思路才能带给别人更多的收获。我们的笔记上总会留下自己的学习的一些过程，有些时候我们想要的只是一点点的鼓励，有时是诸如评论一类，有时可能是诸如访问量。更多的可能是我们可以重新整理自己的知识，好好复习一下，以便于好好记住，写出来是一个好的过程。
+
+无处不在的三剑客就这样到了这里，写得似乎很多也很少，但是还是没有做出来一个东西，于是我们朝着这样一个方向前进。
