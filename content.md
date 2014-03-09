@@ -20,8 +20,6 @@
  
  - 简约之蛇 python
    ** 整洁的代码 **
- - 大地之熊 HTTP
-   ** 坚实的基础 **
  - C assemble
    ** 物种的起源 **
  
@@ -42,6 +40,8 @@
  
  - Internet of Things
    ** 蜘蛛 **
+ - 大地之熊 HTTP
+   ** 坚实的基础 **     
  - RESTful
    ** 袋貂 **
  - Ajax
